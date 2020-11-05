@@ -1,12 +1,12 @@
 const laptopElement = document.getElementById('container-laptops');
 const orderElement = document.getElementById('container-laptop-order');
 
-function Laptop(name,features,description,price,image){
+function Laptop(name,features,description,price,imageUrl){
     this.name = name;
     this.features = features;
     this.description = description;
     this.price = price;
-    this.image = image;
+    this.imageUrl = imageUrl;
 }
 
 let laptops = [];
