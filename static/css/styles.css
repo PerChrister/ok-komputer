@@ -1,6 +1,4 @@
-#komputer-header{
-    border-style: dotted;
-}
+
 #komputer-body{
     border-style: dotted;
 }
@@ -16,24 +14,30 @@
 #container-laptop-order{
     border-style: dotted;
 }
-#komputer-footer{
-    border-style: dotted;
-}
 
 .flex-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: DodgerBlue;
-  }
+    background-color: #54a1cf;
+}
   
-  .flex-container > div  {
-    background-color: #f1f1f1;
+.flex-container > div  {
+    background-color: #96cedf;
     margin: 10px;
     padding: 20px;
     font-size: 30px;
-  }
+    width: 20%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
   
-  .flex-container > div:nth-child(4n) {
+.flex-container > div:nth-child(4n) {
     width: 100%;
-  }
+}
+
+nav {
+    background-color: #12519e;
+    color: #f8fdff;
+    padding: 7px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
