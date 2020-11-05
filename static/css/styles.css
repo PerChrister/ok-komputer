@@ -1,18 +1,18 @@
 
 #komputer-body{
-    border-style: dotted;
+    border-style: double;
 }
 #container-bank{
-    border-style: dotted;
+    border-style: solid;
 }
 #container-work{
-    border-style: dotted;
+    border-style: solid;
 }
 #container-laptops{
-    border-style: dotted;
+    border-style: solid;
 }
 #container-laptop-order{
-    border-style: dotted;
+    border-style: solid;
 }
 
 .flex-container {
@@ -39,5 +39,15 @@ nav {
     background-color: #12519e;
     color: #f8fdff;
     padding: 7px;
+    font-size: 30px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.js-class{
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+    font-family: Arial, Helvetica, sans-serif;
 }
