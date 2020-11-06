@@ -26,6 +26,7 @@ laptops.push(acer);
 let initialMoney = 0;
 let initialWorkMoney = 0;
 let sum = 0;
+let startingBalance = 500;
 let globalBankBalance = 0;
 let hundreds = 0;
 let komputers = laptops;
@@ -36,8 +37,9 @@ const bank =
         <p>Million Dollar Man's Bank</p>
             <div class='js-class'>
                 <p>Banker: Mr. Magpie</p>
-                <p>Balance: <p>
-                <p id='loan-money'> 0 Kr. </p>
+                <p>Starting balance: `+startingBalance+" Kr."+`</p>
+                <p id='starting-loan'>Loan: 0 Kr. </p>
+                <p id='loan-money'>Total Loan: </p>
                 <button type='button' class='btn btn-info' onclick="loan()">Get a loan</button>
             </div>
     </div>
@@ -61,10 +63,19 @@ const bank =
 function loan(money){
 
     money = prompt("Please enter how much you would like to loan: ");
+    if (money >= startingBalance*2){
+        alert("You cannot loan double the amount of your balance!");
+        money=0;
+    } else {
+        
+    initialMoney = parseInt(money,10) + parseInt(startingBalance,10) ;
+
+    document.getElementById("starting-loan").innerHTML = "Loan: " + parseInt(money,10) + " Kr.";
     
-    document.getElementById("loan-money").innerHTML = parseInt(money,10) +  parseInt(globalBankBalance,10) + " Kr.";
+    document.getElementById("loan-money").innerHTML = "Total balance: " + initialMoney + " Kr.";
    
-    initialMoney = money;
+}
+    
 }
 function increaseByHundred(){
 
@@ -82,9 +93,7 @@ function transfer(){
 
     sum = parseInt(initialWorkMoney,10) + parseInt(initialMoney,10);
     
-    const bankBalance = initialWorkMoneys.innerHTML =  parseInt(sum,10) + ' Kr.';
-
-    document.getElementById("work-money").innerHTML =  "Total: " +  "0 Kr.";
+    const bankBalance = initialWorkMoneys.innerHTML =  "Total balance: " + parseInt(sum,10) + ' Kr.';
 
     globalBankBalance = bankBalance;
 }
@@ -103,7 +112,6 @@ const laptopList =
     </div>    
     `
 ;
-
 
 
 const order =  
