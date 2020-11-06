@@ -23,6 +23,11 @@ laptops.push(lenovo);
 laptops.push(asus);
 laptops.push(acer);
 
+let initialMoney = 0;
+let initialWorkMoney = 0;
+let sum = 0;
+let globalBankBalance = 0;
+let hundreds = 0;
 
 const bank =  
     `
@@ -38,25 +43,51 @@ const bank =
     `
 ;
 
-function loan(){
-    let money = prompt("Please enter how much you would like to loan: ");
-    
-	document.getElementById("loan-money").innerHTML = money + " Kr.";
-}
-
  const work =  
     `
     <div class='work-class'>
         <p>Work </p>
             <div class='js-class'>
                 <p>Pay: <p>
-                <p> Kr. </p>
-                <button type='button' class='btn btn-info'>Bank</button>
-                <button type='button' class='btn btn-info'>Work</button>
+                <p id='work-money'><span type='hidden' id='hidden-span'></span> 0 Kr. </p>
+                <button type='button' class='btn btn-info' onclick='transfer()'>Bank</button>
+                <button type='button' class='btn btn-info' onclick='goWork()'>Work</button>
             </div>
     </div>
     `
 ;
+
+function loan(money){
+
+    money = prompt("Please enter how much you would like to loan: ");
+    
+    document.getElementById("loan-money").innerHTML = money + " Kr.";
+   
+    initialMoney = money;
+}
+function increaseByHundred(){
+
+    hundreds = initialWorkMoney += 100;
+
+}
+function goWork(){
+    increaseByHundred()
+    const newBalance = document.getElementById("work-money").innerHTML = hundreds + " Kr.";
+    
+}
+
+function transfer(){
+
+    let initialWorkMoneys = document.getElementById("loan-money");
+
+    sum = parseInt(initialWorkMoney,10) + parseInt(initialMoney,10);
+    
+    const bankBalance = initialWorkMoneys.innerHTML =  parseInt(sum,10) + ' Kr.';
+
+    document.getElementById("work-money").innerHTML = "0 Kr.";
+
+    globalBankBalance = bankBalance;
+}
 
 const laptopList =  
     `
@@ -65,18 +96,14 @@ const laptopList =
             <div class='js-class'> 
                 <p>
                     <select id='select-id'>
-                    <option>${hp.name}</option>
-                    <option>${lenovo.name}</option>
-                    <option>${asus.name}</option>
-                    <option>${acer.name}</option>
                     </select>
                 </p>
-                <p>Features: <img src='${hp.image}'></img><p>
+                <p>Features: <p>
             </div>
     </div>    
     `
 ;
-   
+
 const order =  
 `
 <div class='order-class'>
@@ -89,8 +116,6 @@ const order =
 </div>
 `
 ;  
-
-console.log(laptops)
 
 laptopElement.innerHTML = laptopList;
 orderElement.innerHTML = order;
