@@ -28,6 +28,7 @@ let initialWorkMoney = 0;
 let sum = 0;
 let globalBankBalance = 0;
 let hundreds = 0;
+let komputers = laptops;
 
 const bank =  
     `
@@ -49,7 +50,7 @@ const bank =
         <p>Work </p>
             <div class='js-class'>
                 <p>Pay: <p>
-                <p id='work-money'><span type='hidden' id='hidden-span'></span> 0 Kr. </p>
+                <p id='work-money'>Total:  0 Kr. </p>
                 <button type='button' class='btn btn-info' onclick='transfer()'>Bank</button>
                 <button type='button' class='btn btn-info' onclick='goWork()'>Work</button>
             </div>
@@ -61,7 +62,7 @@ function loan(money){
 
     money = prompt("Please enter how much you would like to loan: ");
     
-    document.getElementById("loan-money").innerHTML = money + " Kr.";
+    document.getElementById("loan-money").innerHTML = parseInt(money,10) +  parseInt(globalBankBalance,10) + " Kr.";
    
     initialMoney = money;
 }
@@ -72,8 +73,7 @@ function increaseByHundred(){
 }
 function goWork(){
     increaseByHundred()
-    const newBalance = document.getElementById("work-money").innerHTML = hundreds + " Kr.";
-    
+    const newBalance = document.getElementById("work-money").innerHTML = "Total: " + hundreds + " Kr.";
 }
 
 function transfer(){
@@ -84,7 +84,7 @@ function transfer(){
     
     const bankBalance = initialWorkMoneys.innerHTML =  parseInt(sum,10) + ' Kr.';
 
-    document.getElementById("work-money").innerHTML = "0 Kr.";
+    document.getElementById("work-money").innerHTML =  "Total: " +  "0 Kr.";
 
     globalBankBalance = bankBalance;
 }
@@ -103,6 +103,8 @@ const laptopList =
     </div>    
     `
 ;
+
+
 
 const order =  
 `
