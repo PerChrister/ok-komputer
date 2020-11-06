@@ -2,6 +2,7 @@ const bankElement = document.getElementById('container-bank');
 const workElement = document.getElementById('container-work');
 const laptopElement = document.getElementById('container-laptops');
 const orderElement = document.getElementById('container-laptop-order');
+let featureElement = document.getElementById('feature');
 
 function Laptop(name,features,description,price,imageUrl){
     this.name = name;
@@ -13,10 +14,10 @@ function Laptop(name,features,description,price,imageUrl){
 
 let laptops = [];
 
-const hp = new Laptop('HP Pavilion 15','i7, 256 SSD, 16 GB RAM','A really good laptop for the dystopia that is coming.','10000 KR',"../images/hp.jpg");
-const lenovo = new Laptop('Lenovo IdeaPad 330','i5, 1 TB HDD, 8 GB RAM','This laptop is mostly used by the Karma Police and performs really well. Highly recommended!','13000 KR',"../images/lenovo.jpg");
-const asus = new Laptop('Asus VivoBook 14','i5, 512 SSD, 8 GB RAM','A small yet high performing laptop recommended by Mr. Yorke himself.','15000 KR',"../images/asus.jpg");
-const acer = new Laptop('Acer Aspire 3','i5, 256 SSD, 8 GB RAM','The perfect laptop with a good enough portable size and performance perfect for myxomatosis experiments.','12000 KR',"../images/acer.jpg");
+const hp = new Laptop('HP Pavilion 15','i7, 256 SSD, 16 GB RAM','A really good laptop for the dystopia that is coming.','1000 KR',"../images/hp.jpg");
+const lenovo = new Laptop('Lenovo IdeaPad 330','i5, 1 TB HDD, 8 GB RAM','This laptop is mostly used by the Karma Police and performs really well. Highly recommended!','1300 KR',"../images/lenovo.jpg");
+const asus = new Laptop('Asus VivoBook 14','i5, 512 SSD, 8 GB RAM','A small yet high performing laptop recommended by Mr. Yorke himself.','1500 KR',"../images/asus.jpg");
+const acer = new Laptop('Acer Aspire 3','i5, 256 SSD, 8 GB RAM','The perfect laptop with a good enough portable size and performance perfect for myxomatosis experiments.','1200 KR',"../images/acer.jpg");
 
 laptops.push(hp);
 laptops.push(lenovo);
@@ -30,6 +31,8 @@ let startingBalance = 500;
 let globalBankBalance = 0;
 let hundreds = 0;
 let komputers = laptops;
+let price = 1000;
+let chosenLaptop;
 
 const bank =  
     `
@@ -98,20 +101,18 @@ function transfer(){
     globalBankBalance = bankBalance;
 }
 
-const laptopList =  
-    `
-    <div class='laptop-class'>
-        <p>Laptops</p>
-            <div class='js-class'> 
-                <p>
-                    <select id='select-id'>
-                    </select>
-                </p>
-                <p>Features: <p>
-            </div>
-    </div>    
-    `
-;
+const laptopsDropDown = document.getElementById('laptop-options');
+for (let i = 0; i < laptops.length; i++) {
+    addLaptopToDropDown(laptops[i].name);
+}
+
+function addLaptopToDropDown(laptopName) {
+    let laptopOption = document.createElement('option');
+    laptopOption.innerText = laptopName;
+    laptopsDropDown.appendChild(laptopOption);
+    console.log(laptopsDropDown.appendChild(laptopOption).value);
+}
+
 
 
 const order =  
@@ -121,13 +122,22 @@ const order =
         <div class='js-class'>
             <p></p>
             <p>Features: <p>
-            <button type='button' class='btn btn-info'>Buy now</button>
+            <p id ='laptop-price'>Price: `+price+`</p>
+            <button type='button' class='btn btn-info' onclick='buyLaptop()'>Buy now</button>
         </div>
 </div>
-`
-;  
+`;  
 
-laptopElement.innerHTML = laptopList;
+
+function buyLaptop(){
+    if (globalBankBalance < price){
+        alert("You cannot buy that laptop!");
+    } else {
+        alert("Thanks for your purchase!");
+    }
+
+}
+
 orderElement.innerHTML = order;
 bankElement.innerHTML = bank;
 workElement.innerHTML = work;
