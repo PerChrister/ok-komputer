@@ -6,5 +6,7 @@ OK Komputer is an online laptop store where you have a balance. You can loan fro
 
 It is a web application built with HTML, CSS, and JavaScript
 
+I hardcoded the price for testing if you will be able to buy. Only the dropdown of the Laptops work and the features don't show so far. 
+
 #  Author 
 Per Vågsäter 
